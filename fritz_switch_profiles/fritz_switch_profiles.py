@@ -179,7 +179,14 @@ class FritzProfileSwitch:
         if updates > 0:
             url = self.url + '/data.lua'
             requests.post(url, data=data, allow_redirects=True)
-
+            
+    def set_blacklist(self, URLFileName):
+        logging.info('\nUPDATING PROFILE BLACKLIST...')
+        with open(URLFileName, 'r') as myfile:
+            url_list = myfile.read()
+            data = {'xhr': 1, 'sid': self.sid, 'urllist': url_list, 'apply': '', 'listtype': 'black', 'lang': 'en', 'page': 'kids_blacklist'}
+            url = self.url + '/data.lua'
+            requests.post(url, data=data, allow_redirects=True)
 
 def parse_kv(s):
     if not re.match('^[^=]+=[^=]+$', s):
@@ -202,6 +209,8 @@ def main():
     parser.add_argument('deviceProfiles', nargs='*', metavar='DEVICE=PROFILE',
                         type=parse_kv,
                         help='Desired device to profile mapping')
+    parser.add_argument('--load_blacklist_from_file', type=str, default='',
+                        help='Valid filename containing URL List to blacklist')                
     args = parser.parse_args()
 
     fps = FritzProfileSwitch(args.url, args.user, args.password)
