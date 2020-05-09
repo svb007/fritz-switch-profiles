@@ -220,6 +220,8 @@ def main():
         fps.print_profiles()
     if args.deviceProfiles:
         fps.set_profiles(args.deviceProfiles)
+    if args.load_blacklist_from_file:
+        fps.set_blacklist(args.load_blacklist_from_file)        
 
 
 if __name__ == '__main__':
