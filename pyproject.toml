@@ -8,6 +8,7 @@ dist-name = "fritz-switch-profiles"
 author = "eifinger"
 author-email = "k.eifinger@googlemail.com"
 home-page = "http://github.com/eifinger/fritz-switch-profiles"
+description-file = "README.md"
 classifiers = [
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
