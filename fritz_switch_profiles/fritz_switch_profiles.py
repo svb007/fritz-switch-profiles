@@ -59,6 +59,8 @@ class FritzProfileSwitch:
                 continue
             select = td[3].xpath('select')
             if not select:
+                select = td[4].xpath('select')
+            if not select:
                 continue
             id2 = select[0].xpath('@name')[0].split(':')[1]
             device_name = td[0].xpath('span/text()')[0]
