@@ -30,5 +30,5 @@ test = [
 ]
 
 [tool.semantic_release]
-version_variable="FoldingAtHomeControl/__init__.py:__version__"
+version_variable="fritz_switch_profiles/__init__.py:__version__"
 build_command="pip install flit && flit build"
