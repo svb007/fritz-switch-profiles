@@ -1,16 +1,18 @@
-[![Build Status](https://travis-ci.org/flopp/fritz-switch-profiles.svg?branch=master)](https://travis-ci.org/flopp/fritz-switch-profiles)
+![CI](https://github.com/eifinger/fritz-switch-profiles/workflows/CI/badge.svg)
 ![License MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)
 
 # fritz-switch-profiles
 A (Python) script to remotely set device profiles of an AVM Fritz!Box
 
+Forked from https://github.com/flopp/fritz-switch-profiles.git to add a PyPi release.
+
 ## Installation
 
 ```
-git clone https://github.com/flopp/fritz-switch-profiles.git
+git clone https://github.com/eifinger/fritz-switch-profiles.git
 cd fritz-switch-profiles
-virtualenv -p python3 env
-source env/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
