@@ -5,4 +5,4 @@ from .fritz_switch_profiles import FritzProfileSwitch  # noqa
 
 logging.getLogger(__name__).addHandler(logging.NullHandler())
 
-__version__ = "1.1.3"
+__version__ = "1.1.4"
