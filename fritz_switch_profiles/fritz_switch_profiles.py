@@ -114,26 +114,28 @@ class FritzProfileSwitch:
         response = requests.post(url, data=data, allow_redirects=True)
         json = response.json()
         self.devices = []
-        for device in json["data"]["active"]:
-            self.devices.append(
-                {
-                    "name": device["name"],
-                    "id1": device["UID"],
-                    "id2": None,
-                    "profile": None,
-                    "active": True,
-                }
-            )
-        for device in json["data"]["passive"]:
-            self.devices.append(
-                {
-                    "name": device["name"],
-                    "id1": device["UID"],
-                    "id2": None,
-                    "profile": None,
-                    "active": False,
-                }
-            )
+        if "data" in json and "active" in json["data"]:
+            for device in json["data"]["active"]:
+                self.devices.append(
+                    {
+                        "name": device["name"],
+                        "id1": device["UID"],
+                        "id2": None,
+                        "profile": None,
+                        "active": True,
+                    }
+                )
+        if "data" in json and "passive" in json["data"]:
+            for device in json["data"]["passive"]:
+                self.devices.append(
+                    {
+                        "name": device["name"],
+                        "id1": device["UID"],
+                        "id2": None,
+                        "profile": None,
+                        "active": False,
+                    }
+                )
 
     def fetch_profiles(self):
         """Fetch and store all profiles"""
