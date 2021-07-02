@@ -113,6 +113,10 @@ class FritzProfileSwitch:
         url = self.url + "/data.lua"
         response = requests.post(url, data=data, allow_redirects=True)
         json = response.json()
+        if("data" in json and "active" not in json["data"]):
+            data["xhrId"] = "all"
+            response = requests.post(url, data=data, allow_redirects=True)
+            json = response.json()
         self.devices = []
         if "data" in json and "active" in json["data"]:
             for device in json["data"]["active"]:
