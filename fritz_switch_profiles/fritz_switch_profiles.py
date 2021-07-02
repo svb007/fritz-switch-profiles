@@ -109,7 +109,7 @@ class FritzProfileSwitch:
     def fetch_devices(self):
         """Fetch and store all devices"""
         logging.info("FETCHING DEVICES...")
-        data = {"xhr": 1, "sid": self.sid, "no_sidrenew": "",'xhrId': 'all', "page": "netDev"}
+        data = {"xhr": 1, "sid": self.sid, "no_sidrenew": "", "xhrId": "all", "page": "netDev"}
         url = self.url + "/data.lua"
         response = requests.post(url, data=data, allow_redirects=True)
         json = response.json()
